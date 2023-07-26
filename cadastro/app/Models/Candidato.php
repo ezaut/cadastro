@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -24,9 +24,22 @@ class Candidato extends Authenticatable
         'username',
         'email',
         'password',
+        'cpf',
+        'sexo',
+        'nome_mae',
+        'dt_nascimento',
+        'escolaridade',
+        'vinculo',
         'endereco',
-        'telefone',
-        'email_verified_at'
+        'complemento',
+        'bairro',
+        'cidade',
+        'uf',
+        'cep',
+        'rg',
+        'org_exp',
+        'dt_emissao',
+        'telefone'
     ];
 
     /**

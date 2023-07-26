@@ -6,7 +6,7 @@
 	<title>Document</title>
 </head>
 <body>
-<form>
+<form action="{{ route('back.pages.candidato.store') }}" method="POST">
 	<div class="form-group row">
 		<label class="col-sm-12 col-md-2 col-form-label">Text</label>
 		<div class="col-sm-12 col-md-10">

@@ -1,11 +1,11 @@
 @extends('back.layout.auth-layout')
-@section('pageTitle', isset($pageTitle) ? $pageTitle : 'Candidato Login')
+@section('pageTitle', isset($pageTitle) ? $pageTitle : 'Admin Login')
 @section('content')
 <div class="login-box bg-white box-shadow border-radius-10">
     <div class="login-title">
-        <h2 class="text-center text-primary">Candidato</h2>
+        <h2 class="text-center text-primary">Admin Login</h2>
     </div>
-    <form action="{{route('candidato.login_handler')}}" method="POST">
+    <form action="{{route('admin.login_handler')}}" method="POST">
         @csrf
         @if (Session::get('fail'))
         <div class="alert alert-danger">
@@ -27,7 +27,7 @@
         @endif
 
         <div class="input-group custom">
-            <input type="text" class="form-control form-control-lg" placeholder="Email ou username" name="login_id" value="{{old('login_id')}}">
+            <input type="text" class="form-control form-control-lg" placeholder="Email ou Username" name="login_id" value="{{old('login_id')}}">
             <div class="input-group-append custom">
                 <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
             </div>
@@ -52,12 +52,12 @@
             <div class="col-6">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Lembre-me</label>
+                    <label class="custom-control-label" for="customCheck1">Remember</label>
                 </div>
             </div>
             <div class="col-6">
                 <div class="forgot-password">
-                    <a href="{{ route('candidato.forgot-password')}}">Esqueci a senha</a>
+                    <a href="{{ route('admin.forgot-password')}}">Forgot Password</a>
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@
             <div class="col-sm-12">
                 <div class="input-group mb-0">
 
-                    <input class="btn btn-primary btn-lg btn-block" type="submit" value="Entrar">
+                    <input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
 
 
                 </div>

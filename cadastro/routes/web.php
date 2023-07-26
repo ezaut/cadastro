@@ -25,7 +25,11 @@ use App\Http\Controllers\AdminController;
 /*---------End Admin Route----------- */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home_sead');
+});
+
+Route::get('/home_sead', function () {
+    return view('home_sead');
 });
 
 Route::view('/example-page','example-page');

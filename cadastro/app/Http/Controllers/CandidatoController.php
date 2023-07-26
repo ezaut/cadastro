@@ -11,15 +11,142 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\Rules;
+use Illuminate\Validation\Validator;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 
-
 class CandidatoController extends Controller
 {
+
+    public readonly Candidato $candidato;
+
+    public function __construct(){
+
+        $this->candidato = new Candidato();
+    }
+
+
+    /**
+     * Display a listing of the resource.
+     */
+    /*public function index()
+    {
+        return view('');
+    }*/
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('back.pages.candidato.register');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    /**
+     * Handle an incoming registration request.
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function store(Request $request): RedirectResponse
+    {
+       /* $validated = $request->validate([
+            'name' => 'required|string|max:100',
+            'username' => 'required|string|max:100',
+            'email' => 'required|string|email|max:100|unique:'.Candidato::class,
+            'password' => 'required|confirmed|max:100', Rules\Password::defaults(),
+            'cpf' => 'required|integer|min:11|max:11|unique:'.Candidato::class,
+            'sexo' => 'string|min:1|max:1',
+            'nome_mae' => 'string|max:100',
+            'dt_nascimento' => 'date',
+            'escolaridade' => 'string|max:50',
+            'vinculo' => 'string|max:50',
+            'endereco' => 'string|max:70',
+            'complemento' => 'string|max:70',
+            'bairro' => 'string|max:70',
+            'cidade' => 'string|max:20',
+            'uf' => 'string|min:2|max:2',
+            'cep' => 'integer|min:10|max:10',
+            'rg' => 'integer',
+            'org_exp' => 'string',
+            'dt_emissao' => 'date',
+            'telefone' => 'integer',
+        ]);*/
+
+        $candidato = $this->candidato->create([
+            'name' => $request->input('name'),
+            'username' => $request->input('username'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+            'cpf' => $request->input('cpf'),
+            'sexo' => $request->input('sexo'),
+            'nome_mae' => $request->input('nome_mae'),
+            'dt_nascimento' => $request->input('dt_nascimento'),
+            'escolaridade' => $request->input('escolaridade'),
+            'vinculo' => $request->input('vinculo'),
+            'endereco' => $request->input('endereco'),
+            'complemento' => $request->input('complemento'),
+            'bairro' => $request->input('bairro'),
+            'cidade' => $request->input('cidade'),
+            'uf' => $request->input('uf'),
+            'cep' => $request->input('cep'),
+            'rg' => $request->input('rg'),
+            'org_exp' => $request->input('org_exp'),
+            'dt_emissao' => $request->input('dt_emissao'),
+            'telefone' => $request->input('telefone')
+        ]);
+
+        /*event(new Registered($candidato));
+
+        Auth::login($candidato);
+
+        return redirect(RouteServiceProvider::HOME);*/
+
+        if ($candidato) {
+
+            return redirect()->route('candidato.login')->with('message', 'Cadastro concluído com sucesso.');
+        }
+
+        return redirect()->route('candidato.login')->with('message', 'Erro ao criar o cadastro, tente outra vez.');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
+
     public function loginHandler(Request $request){
         $fieldType = filter_var($request->login_id, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
@@ -52,52 +179,18 @@ class CandidatoController extends Controller
         );
 
         if( Auth::guard('candidato')->attempt($creds)){
+            session()->flash('success', 'Login feito!');
             return redirect()->route('candidato.home');
         }else{
-            session()->flash('fail', 'Incorrect credentials');
+            session()->flash('fail', 'Credenciais incorretas');
             return redirect()->route('candidato.login');
         }
     }
 
     public function logoutHandler(Request $request){
         Auth::guard('candidato')->logout();
-        session()->flash('fail', 'You are logged out');
+        session()->flash('fail', 'Você está desconectado');
         return redirect()->route('candidato.login');
-    }
-
-    /**
-     * Display the registration view.
-     */
-     public function create(): View
-    {
-        return view('back.pages.candidato.auth.register');
-    }
-
-    /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function store(Request $request): RedirectResponse
-    {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.Candidato::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-
-        $candidato = Candidato::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        event(new Registered($candidato));
-
-        Auth::login($candidato);
-
-        return redirect(RouteServiceProvider::CANDIDATO);
     }
 
     public function sendPasswordResetLink(Request $request){

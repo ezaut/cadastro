@@ -39,7 +39,7 @@ class RegisteredUserController extends Controller
 
         $candidato = Candidato::create([
             'name' => $request->name,
-            'username' =>$request->username,
+            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
