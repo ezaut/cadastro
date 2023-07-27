@@ -238,7 +238,7 @@
 							<a class="dropdown-item" href="faq.html"
 								><i class="dw dw-help"></i> Help</a
 							>
-							<a class="dropdown-item" href="/"
+							<a class="dropdown-item" href="login.html"
 								><i class="dw dw-logout"></i> Log Out</a
 							>
 
@@ -682,7 +682,7 @@
 								<div class="dropdown">
 									<a
 										class="btn btn-primary dropdown-toggle"
-										href="login"
+										href="#"
 										role="button"
 										data-toggle="dropdown"
 									>

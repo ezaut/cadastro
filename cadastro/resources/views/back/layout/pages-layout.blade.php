@@ -164,66 +164,66 @@
                 </div>
             </div>
 
-            @if (Auth::guard('admin')->check())
-            <div class="user-info-dropdown">
-                <div class="dropdown">
-                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                        <span class="user-icon">
-                            <img src="/back/vendors/images/photo1.jpg" alt="" />
-                        </span>
-                        <span class="user-name">Ross C. Lopez</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                        <a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
-                        <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
-                        <a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
-                        <a class="dropdown-item" href="{{ route('admin.logout_handler') }}" onclick="event.preventDefault();document.getElementById('adminLogoutForm').
-								submit();"><i class="dw dw-logout"></i> Log Out</a>
-                        <form action="{{ route('admin.logout_handler') }}" id="adminLogoutForm" method="POST">@csrf
-                        </form>
+            @if(Auth::guard('admin')->check())
+                <div class="user-info-dropdown">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                            <span class="user-icon">
+                                <img src="/back/vendors/images/photo1.jpg" alt="" />
+                            </span>
+                            <span class="user-name">Ross C. Lopez</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                            <a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
+                            <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
+                            <a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
+                            <a class="dropdown-item" href="{{ route('admin.logout_handler') }}" onclick="event.preventDefault();document.getElementById('adminLogoutForm').
+								    submit();"><i class="dw dw-logout"></i> Log Out</a>
+                            <form action="{{ route('admin.logout_handler') }}" id="adminLogoutForm" method="POST">@csrf
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
             @elseif(Auth::guard('servidor')->check())
-            <div class="user-info-dropdown">
-                <div class="dropdown">
-                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                        <span class="user-icon">
-                            <img src="/back/vendors/images/photo1.jpg" alt="" />
-                        </span>
-                        <span class="user-name">Ross C. Lopez</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                        <a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
-                        <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
-                        <a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
-                        <a class="dropdown-item" href="{{ route('servidor.logout_handler') }}" onclick="event.preventDefault();document.getElementById('servidorLogoutForm').
-								submit();"><i class="dw dw-logout"></i> Log Out</a>
-                        <form action="{{ route('servidor.logout_handler') }}" id="servidorLogoutForm" method="POST">
-                            @csrf</form>
+                <div class="user-info-dropdown">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                            <span class="user-icon">
+                                <img src="/back/vendors/images/photo1.jpg" alt="" />
+                            </span>
+                            <span class="user-name">Ross C. Lopez</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                            <a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
+                            <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
+                            <a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
+                            <a class="dropdown-item" href="{{ route('servidor.logout_handler') }}" onclick="event.preventDefault();document.getElementById('servidorLogoutForm').
+								    submit();"><i class="dw dw-logout"></i> Log Out</a>
+                            <form action="{{ route('servidor.logout_handler') }}" id="servidorLogoutForm" method="POST">
+                                @csrf</form>
+                        </div>
                     </div>
                 </div>
-            </div>
             @elseif(Auth::guard('candidato')->check())
-            <div class="user-info-dropdown">
-                <div class="dropdown">
-                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                        <span class="user-icon">
-                            <img src="/back/vendors/images/photo1.jpg" alt="" />
-                        </span>
-                        <span class="user-name">Ross C. Lopez</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                        <a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
-                        <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
-                        <a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
-                        <a class="dropdown-item" href="{{ route('candidato.logout_handler') }}" onclick="event.preventDefault();document.getElementById('candidatoLogoutForm').
-								submit();"><i class="dw dw-logout"></i> Log Out</a>
-                        <form action="{{ route('candidato.logout_handler') }}" id="candidatoLogoutForm" method="POST">
-                            @csrf</form>
+                <div class="user-info-dropdown">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                            <span class="user-icon">
+                                <img src="/back/vendors/images/photo1.jpg" alt="" />
+                            </span>
+                            <span class="user-name">Ross C. Lopez</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                            <a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
+                            <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
+                            <a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
+                            <a class="dropdown-item" href="{{ route('candidato.logout_handler') }}" onclick="event.preventDefault();document.getElementById('candidatoLogoutForm').
+								    submit();"><i class="dw dw-logout"></i> Log Out</a>
+                            <form action="{{ route('candidato.logout_handler') }}" id="candidatoLogoutForm" method="POST">
+                                @csrf</form>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endif
 
         </div>
@@ -554,7 +554,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12 text-right">
                             <div class="dropdown">
-                                <a class="btn btn-primary dropdown-toggle" href="login" role="button"
+                                <a class="btn btn-primary dropdown-toggle" href="#" role="button"
                                     data-toggle="dropdown">
                                     Login
                                 </a>
@@ -579,13 +579,13 @@
     </div>
 
     <!-- js -->
-    <script src="back/vendors/scripts/core.js"></script>
-    <script src="back/vendors/scripts/script.min.js"></script>
-    <script src="back/vendors/scripts/process.js"></script>
-    <script src="back/vendors/scripts/layout-settings.js"></script>
-    <script src="back/src/plugins/jquery-steps/jquery.steps.js"></script>
-    <script src="back/vendors/scripts/steps-setting.js"></script>
-    <script src="back/vendors/scripts/jquery.mask.js"></script>
+    <script src="/back/vendors/scripts/core.js"></script>
+    <script src="/back/vendors/scripts/script.min.js"></script>
+    <script src="/back/vendors/scripts/process.js"></script>
+    <script src="/back/vendors/scripts/layout-settings.js"></script>
+    <script src="/back/src/plugins/jquery-steps/jquery.steps.js"></script>
+    <script src="/back/vendors/scripts/steps-setting.js"></script>
+    <script src="/back/vendors/scripts/jquery.mask.js"></script>
     <script>
         if (navigator.userAgent.indexOf("Firefox") != -1) {
                 history.pushState(null, null, document.URL);

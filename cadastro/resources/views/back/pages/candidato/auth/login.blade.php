@@ -5,7 +5,7 @@
     <div class="login-title">
         <h2 class="text-center text-primary">Candidato</h2>
     </div>
-    <form action="{{route('candidato.login_handler')}}" method="POST">
+    <form action="{{ route('candidato.login_handler') }}" method="POST">
         @csrf
         @if (Session::get('fail'))
         <div class="alert alert-danger">
